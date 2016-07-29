@@ -517,7 +517,7 @@ function breakfast()
             lunch $target
         else
             # This is probably just the PA model name
-            lunch pa_$target-userdebug
+            lunch cpa_$target-userdebug
         fi
     fi
     return $?
@@ -563,7 +563,7 @@ function lunch()
     export TARGET_BUILD_APPS=
 
     local product=$(echo -n $selection | sed -e "s/-.*$//")
-    if [[ $product == pa_* ]]
+    if [[ $product == cpa_* ]]
     then
         pushd $(gettop) > /dev/null
         build/tools/roomservice.py $product
